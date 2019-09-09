@@ -1,0 +1,19 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: $s-size;
+  background: white;
+}
+
+button {
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.is-active {
+  font-weight: bold;
+}
