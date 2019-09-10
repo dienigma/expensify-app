@@ -20,7 +20,7 @@ store.dispatch(addExpense({ description: "gas bill", amount: 3000 }));
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 
-console.log(visibleExpenses);
+console.log("test");
 
 const appRoot = document.getElementById("app");
 const jsx = (

@@ -3,13 +3,10 @@ import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 
-// const date = new Date();
-const now = moment();
-console.log(now.format("MMM Do, YYYY"));
-
 export default class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       description: props.expense ? props.expense.description : "",
       note: props.expense ? props.expense.note : "",
@@ -19,7 +16,6 @@ export default class ExpenseForm extends React.Component {
       error: ""
     };
   }
-
   onDescriptionChange = e => {
     const description = e.target.value;
     this.setState(() => ({ description }));
@@ -31,7 +27,7 @@ export default class ExpenseForm extends React.Component {
   onAmountChange = e => {
     const amount = e.target.value;
 
-    if (!!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
+    if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
       this.setState(() => ({ amount }));
     }
   };
@@ -45,11 +41,13 @@ export default class ExpenseForm extends React.Component {
   };
   onSubmit = e => {
     e.preventDefault();
+
     if (!this.state.description || !this.state.amount) {
-      const error = "Description and Amount must not be empty";
-      this.setState({ error });
+      this.setState(() => ({
+        error: "Please provide description and amount."
+      }));
     } else {
-      this.setState({ error: "" });
+      this.setState(() => ({ error: "" }));
       this.props.onSubmit({
         description: this.state.description,
         amount: parseFloat(this.state.amount, 10) * 100,
@@ -84,7 +82,6 @@ export default class ExpenseForm extends React.Component {
             numberOfMonths={1}
             isOutsideRange={() => false}
           />
-
           <textarea
             placeholder="Add a note for your expense (optional)"
             value={this.state.note}
