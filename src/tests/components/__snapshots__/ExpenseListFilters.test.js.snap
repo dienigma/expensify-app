@@ -9,6 +9,7 @@ exports[`should render expense list filters correctely 1`] = `
   />
   <select
     onChange={[Function]}
+    value="date"
   >
     <option
       value="date"
@@ -116,6 +117,7 @@ exports[`should render expense list with props filters correctely 1`] = `
   />
   <select
     onChange={[Function]}
+    value="amount"
   >
     <option
       value="date"
