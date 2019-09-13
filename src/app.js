@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import "react-dates/lib/css/_datepicker.css";
 import configureStore from "./store/configureStore";
-import { addExpense } from "./actions/expenses";
+import { startAddExpense, startSetExpenses } from "./actions/expenses";
 import { setTextFilter } from "./actions/filters";
 import getVisibleExpenses from "./selectors/expenses";
 import AppRouter from "./routers/AppRouter";
@@ -22,4 +22,7 @@ const jsx = (
     <AppRouter />
   </Provider>
 );
-ReactDOM.render(jsx, appRoot);
+ReactDOM.render(<p>Loading...</p>, appRoot);
+store.dispatch(startSetExpenses()).then(() => {
+  ReactDOM.render(jsx, appRoot);
+});
