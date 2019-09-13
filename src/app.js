@@ -8,7 +8,7 @@ import { setTextFilter } from "./actions/filters";
 import getVisibleExpenses from "./selectors/expenses";
 import AppRouter from "./routers/AppRouter";
 import "./firebase/firebase";
-import "./playgrounds/promises";
+// import "./playgrounds/promises";
 import "../node_modules/normalize.css/normalize.css";
 import "./styles/styles.scss";
 
