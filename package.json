@@ -29,7 +29,7 @@
     "firebase": "^4.2.0",
     "history": "^4.7.2",
     "moment": "^2.24.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "normalize.css": "^8.0.1",
     "npm": "^6.13.4",
     "numeral": "^2.0.6",
